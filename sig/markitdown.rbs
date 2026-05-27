@@ -1,0 +1,25 @@
+module Markitdown
+  VERSION: String
+
+  def self.convert_pages: (Array[Hash[String, untyped]] pages, ?tesseract_path: String?) -> Result
+
+  class ConversionError < StandardError
+  end
+
+  class Result
+    attr_reader markdown: String
+    attr_reader metadata: Hash[String, untyped]
+    attr_reader warnings: Array[String]
+
+    def initialize: (markdown: String, ?metadata: Hash[String, untyped], ?warnings: Array[String]) -> void
+    def markdown?: () -> bool
+  end
+
+  class Converter
+    DOCX_MIME_TYPE: String
+    PDF_MIME_TYPE: String
+
+    def initialize: (?tesseract_path: String?) -> void
+    def convert_pages: (Array[Hash[String, untyped]] pages) -> Result
+  end
+end
