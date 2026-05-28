@@ -50,6 +50,26 @@ class MarkitdownConverterTest < Minitest::Test
     assert_includes result.warnings.join, "Tesseract is required"
   end
 
+  def test_uses_rtesseract_wrapper_for_image_ocr
+    calls = []
+    ocr = Object.new
+    ocr.define_singleton_method(:to_s) { "Recognized text" }
+
+    RTesseract.stub(:new, ->(path, options) {
+      calls << [path, options]
+      ocr
+    }) do
+      result = Markitdown::Converter.new(tesseract_path: "/usr/local/bin/tesseract").convert_pages([
+        page("image-bytes", "image/png", "scan.png")
+      ])
+
+      assert_includes result.markdown, "Recognized text"
+    end
+
+    assert_equal "/usr/local/bin/tesseract", calls.dig(0, 1).fetch(:command)
+    assert_match(/\.png\z/, calls.dig(0, 0))
+  end
+
   private
 
   def page(content, mime_type, name)

@@ -13,11 +13,14 @@ receive the resulting Markdown, not raw document pages, for analysis.
 - CSV, JSON, and XML
 - PDFs with embedded text
 - DOCX files
-- Images through local Tesseract OCR, when the `tesseract` executable is installed
+- Images through the bundled `rtesseract` Ruby wrapper, when the native
+  `tesseract` executable is installed
 
-Scanned PDFs and images require local OCR tooling. If OCR is unavailable or a
-file cannot be converted locally, the result includes warnings and empty
-Markdown instead of calling an AI fallback.
+Scanned PDFs and images require local OCR tooling. The gem installs the Ruby
+OCR wrapper, but your machine or deployment image still needs the native
+Tesseract executable, for example `brew install tesseract` on macOS. If OCR is
+unavailable or a file cannot be converted locally, the result includes warnings
+and empty Markdown instead of calling an AI fallback.
 
 ## Usage
 

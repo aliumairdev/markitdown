@@ -33,7 +33,9 @@ Gem::Specification.new do |spec|
   spec.add_dependency "base64", ">= 0.2"
   spec.add_dependency "json", ">= 2.0"
   spec.add_dependency "nokogiri", ">= 1.15"
+  spec.add_dependency "ostruct", ">= 0.6"
   spec.add_dependency "pdf-reader", "~> 2.15"
+  spec.add_dependency "rtesseract", "~> 3.1"
   spec.add_dependency "rubyzip", "~> 2.4"
 
   # For more information and examples about making a new gem, check out our

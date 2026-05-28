@@ -4,6 +4,7 @@ require "base64"
 require "json"
 require "nokogiri"
 require "pdf/reader"
+require "rtesseract"
 require "stringio"
 require "tempfile"
 require "zip"
@@ -160,11 +161,13 @@ module Markitdown
         file.binmode
         file.write(bytes)
         file.flush
-        output = IO.popen([tesseract_path, file.path, "stdout"], err: File::NULL, &:read).to_s.strip
+        output = RTesseract.new(file.path, command: tesseract_path).to_s.strip
         raise ConversionError, "Image OCR returned no text" if output.empty?
 
         output
       end
+    rescue Errno::ENOENT
+      raise ConversionError, "Tesseract executable was not found"
     end
 
     def markdown_nodes(nodes)
