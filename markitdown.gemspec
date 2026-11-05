@@ -36,7 +36,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "ostruct", ">= 0.6"
   spec.add_dependency "pdf-reader", "~> 2.15"
   spec.add_dependency "rtesseract", "~> 3.1"
-  spec.add_dependency "rubyzip", "~> 2.4"
+  spec.add_dependency "rubyzip", ">= 2.4", "< 4"
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://guides.rubygems.org/make-your-own-gem/
