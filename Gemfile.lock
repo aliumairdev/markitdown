@@ -8,7 +8,7 @@ PATH
       ostruct (>= 0.6)
       pdf-reader (~> 2.15)
       rtesseract (~> 3.1)
-      rubyzip (~> 2.4)
+      rubyzip (>= 3.4, < 4)
 
 GEM
   remote: https://rubygems.org/
@@ -68,7 +68,7 @@ GEM
       io-console (~> 0.5)
     rtesseract (3.1.4)
     ruby-rc4 (0.1.5)
-    rubyzip (2.4.1)
+    rubyzip (3.7.0)
     stringio (3.2.0)
     tsort (0.2.0)
     ttfunk (1.8.0)
@@ -124,7 +124,7 @@ CHECKSUMS
   reline (0.6.3) sha256=1198b04973565b36ec0f11542ab3f5cfeeec34823f4e54cebde90968092b1835
   rtesseract (3.1.4) sha256=7967bc726676cbfbb6923d4115d13e350cead3aab984cb0f2cbe915b78ce7e36
   ruby-rc4 (0.1.5) sha256=00cc40a39d20b53f5459e7ea006a92cf584e9bc275e2a6f7aa1515510e896c03
-  rubyzip (2.4.1) sha256=8577c88edc1fde8935eb91064c5cb1aef9ad5494b940cf19c775ee833e075615
+  rubyzip (3.7.0) sha256=65c19294da75297a939006f3516deacc33185fbd721ff1954f7a231db6d3e121
   stringio (3.2.0) sha256=c37cb2e58b4ffbd33fe5cd948c05934af997b36e0b6ca6fdf43afa234cf222e1
   tsort (0.2.0) sha256=9650a793f6859a43b6641671278f79cfead60ac714148aabe4e3f0060480089f
   ttfunk (1.8.0) sha256=a7cbc7e489cc46e979dde04d34b5b9e4f5c8f1ee5fc6b1a7be39b829919d20ca
